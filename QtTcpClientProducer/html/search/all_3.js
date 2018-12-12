@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['stopdata',['stopData',['../class_main_window.html#a79fdaf1fd769f0584f50da34e415b3de',1,'MainWindow']]]
+  ['start',['start',['../class_main_window.html#a5edcbc314e782645cdf4db101eeb247d',1,'MainWindow']]],
+  ['stop',['stop',['../class_main_window.html#a939e90ddfe07d74be87b351ca2171fb0',1,'MainWindow']]]
 ];

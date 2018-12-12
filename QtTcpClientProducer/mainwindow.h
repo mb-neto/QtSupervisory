@@ -7,57 +7,38 @@
 #include <QString>
 
 namespace Ui {
-
 class MainWindow;
 }
 
-/**
- * @brief A classe MainWindow representa o contâiner da janela da aplicação e seus componentes
- */
 class MainWindow : public QMainWindow
 {
-    Q_OBJECT
+  Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+  explicit MainWindow(QWidget *parent = 0);
+  ~MainWindow();
 
 public slots:
-    /**
-     * @brief putData é um função que cria um temporalizador usado na função timerEvent para possibilitar o envio constante de dados ao servidor.
-     */
-    void putData();
+  void putData();
+  void tcpConnect();
+  void tcpDisconnect();
+  void start();
+  void stop();
+  void timerEvent(QTimerEvent *e);
 
-    /**
-     * @brief stopData é um função que "mata" o temporalizador criado pela função putData , fazendo com que o envio de dados ao servidor cesse.
-     */
-    void stopData();
-
-    /**
-     * @brief getIP é um função que grava o conteudo pressente no campo de texto do objeto lineEdit em uma Qstring.
-     */
-    QString getIP();
-
-    /**
-     * @brief tcpConnect abre uma conexão com um servidor informado
-     */
-    void tcpConnect();
-
-    /**
-     * @brief tcpDisconnect fecha uma conexão com um servidor informado
-     */
-    void tcpDisconnect();
-
-    /**
-     * @brief timerEvent seta valores temporais a serem enviados pro servidor
-     */
-    void timerEvent(QTimerEvent *event);
-
-private:
-    int timerID;
-    Ui::MainWindow *ui;
-    QTcpSocket *socket;
+  /**
+   * @brief retorna um número inteiro que define o intervalo
+   * entre dois números inteiros aleatórios
+   * @param min é o limite inferior dos dados aleatórios desejados
+   * @param max é o limite superior dos dados aleatórios desejados
+   * @return true or false
+   */
+  int random(int min, int max);
+  private:
+  Ui::MainWindow *ui;
+  QTcpSocket *socket;
+  QString ip;
+  int timer;
 };
-
 
 #endif // MAINWINDOW_H
